@@ -16,6 +16,7 @@ from djangocms_form_builder import settings
 
 from .. import forms, models, recaptcha
 from ..actions import ActionMixin
+from ..attributes import AttributesMixin
 from ..forms import SimpleFrontendForm
 from ..helpers import get_option, insert_fields, mark_safe_lazy
 
@@ -246,7 +247,7 @@ class CMSAjaxForm(AjaxFormMixin, CMSAjaxBase):
 
 
 @plugin_pool.register_plugin
-class FormPlugin(ActionMixin, CMSAjaxForm):
+class FormPlugin(ActionMixin, AttributesMixin, CMSAjaxForm):
     name = _("Form")
     model = models.Form
 
