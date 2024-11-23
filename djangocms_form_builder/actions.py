@@ -112,7 +112,7 @@ class SaveToDBAction(FormAction):
         ):
             keys = {
                 "form_name": get_option(form, "form_name"),
-                "form_user": request.user,
+                "form_user": None if request.user.is_anonymous else request.user
             }
             defaults = {}
         else:
